@@ -1,0 +1,80 @@
+<h1 class="page-header">
+  Supplier <small>Edit</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/supplier">Supplier</a></li>
+  <li>Edit</li>
+</ol>
+<form [formGroup]="suppForm" (ngSubmit)="updateSupplier()" class="form-horizontal">
+  <div class="col-md-8">   
+    <div class="form-group" [class.has-error]="suppForm.get('compName')?.invalid && suppForm.get('compName')?.touched">
+      <label class="control-label col-md-3">Company Name <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+         <input class="form-control" formControlName="compName" />
+         <span class="help-block" *ngIf="suppForm.get('compName')?.invalid && suppForm.get('compName')?.touched">Company Name is required.</span>
+      </div>
+    </div>
+     <div class="form-group" [class.has-error]="suppForm.get('contactName')?.invalid && suppForm.get('contactName')?.touched">
+      <label class="control-label col-md-3">Contact Name <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+         <input class="form-control" formControlName="contactName" />
+         <span class="help-block" *ngIf="suppForm.get('contactName')?.invalid && suppForm.get('contactName')?.touched"> Contact Name is required.</span>
+      </div>
+    </div>  
+    <div class="form-group">
+      <label class="control-label col-md-3">Contact Title :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="contactTitle" />
+       </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Email :</label>
+       <div class="col-md-9"> 
+           <input class="form-control" formControlName="email" />
+       </div>
+     </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">Phone :</label>
+       <div class="col-md-9">
+            <input class="form-control" formControlName="phone" />
+       </div>
+     </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">Mobile :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="mobile" />
+       </div>
+     </div>
+    <div class="form-group">
+       <label class="control-label col-md-3">Fax :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="fax" />
+       </div>
+     </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">City :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="city" />
+       </div>
+     </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">Country :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="country" />
+       </div>
+     </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Address :</label>
+      <div class="col-md-9">
+          <textarea rows="3" class="form-control" formControlName="address"></textarea>
+       </div>
+     </div>
+      <div class="form-group">
+        <div class="col-md-offset-3 col-md-4">
+            <input type="submit" value="Update" class="btn btn-primary" [disabled]="isSaving" />
+             <a routerLink="/supplier" class="btn btn-primary" style="margin-left: 5px;">Back</a> 
+        </div>
+    </div>
+  </div>
+</form>

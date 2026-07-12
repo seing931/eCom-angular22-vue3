@@ -1,0 +1,95 @@
+<h1 class="page-header">
+  Employee <small>Add</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/employee">Employee</a></li>
+  <li>Add</li>
+</ol>
+<form [formGroup]="empForm" (ngSubmit)="addEmp($event)" class="form-horizontal">
+  <div class="col-md-8">
+    <div class="form-group" [class.has-error]="empForm.get('firstName')?.invalid && empForm.get('firstName')?.touched">
+      <label class="control-label col-md-3">First Name <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+         <input class="form-control" formControlName="firstName" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">Last Name :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="lastName" />
+       </div>
+     </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Age :</label>
+       <div class="col-md-9">
+            <input type="number" class="form-control" formControlName="age" />
+       </div>
+     </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Gender :</label>
+       <div class="col-md-9">
+        <select class="form-control" formControlName="gender">
+            <option value="">-- Select --</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+       </div>
+     </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Date of Birth :</label>
+       <div class="col-md-9">
+           <input type="date" class="form-control" formControlName="dateofBirth" />
+       </div>
+     </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Email :</label>
+       <div class="col-md-9"> 
+           <input class="form-control" formControlName="email" />
+       </div>
+     </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Phone :</label>
+       <div class="col-md-9">
+            <input class="form-control" formControlName="phone" />
+       </div>
+     </div>
+      <div class="form-group" [class.has-error]="empForm.get('mobile')?.invalid && empForm.get('mobile')?.touched">
+      <label class="control-label col-md-3">Mobile <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+         <input class="form-control" formControlName="mobile" />
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-md-3">Address :</label>
+       <div class="col-md-9">
+          <textarea rows="3" class="form-control" formControlName="address"></textarea>
+       </div>
+     </div>
+     <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)" accept=".jpg,.jpeg,.png,.webp" />
+
+      <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+            <input type="submit" value="Save" class="btn btn-primary" [disabled]="isSaving" />
+            <a routerLink="/employee" class="btn btn-primary" style="margin-left: 5px;">Back</a>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+  <div>
+    <img [src]="imagePreview ? imagePreview : 'ProfileImage.jpg'" alt="Profile Thumbnail Preview" class="img-thumbnail" width="200" height="200" />
+  </div>
+  <div *ngIf="selectedFile" style="margin-top: 5px; word-break: break-all;">
+    <small class="text-muted"><i class="fa fa-file-image-o"></i> {{ selectedFile.name }}</small>
+  </div>
+  <br />
+  <div>
+    <button type="button" class="btn btn-sm btn-primary" (click)="fileInput.click()"> 
+      <i class="fa fa-fw fa-folder-open-o"></i> Browse
+    </button>
+    <button type="button" class="btn btn-sm btn-danger" (click)="clearImage()"> 
+      <i class="fa fa-fw fa-remove"></i> Clear
+    </button>
+  </div>
+</div>
+</form>

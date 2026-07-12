@@ -1,0 +1,89 @@
+<h1 class="page-header"> Order </h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li>Order</li>
+</ol>
+
+<div class="row" class="first-line">
+  <div class="col-xs-12" class="scd-line">   
+    <div class="form-inline">
+      <input 
+        id="searchFilter" 
+        type="text" 
+        class="form-control input-sm" 
+        placeholder="Search by Name/Payment" 
+        [ngModel]="searchTerm()" 
+        (ngModelChange)="onSearchChange($event)" />
+    </div>
+    <div class="form-inline">
+      <label for="pageSize" style="margin-right: 5px;">Show: </label>
+      <select id="pageSize" class="form-control input-sm" [ngModel]="pageSize()" (ngModelChange)="onPageSizeChange($event)">
+        <option *ngFor="let size of allowedPageSizes" [value]="size">{{ size }} records</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row">
+ <table class="table table-hover table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Payment Type</th>
+        <th>Discount</th>
+        <th>Taxes</th>
+        <th>Total Amount</th>
+        <th (click)="toggleSortDate()" style="cursor: pointer; user-select: none;" title="Click to sort by date">
+          Order Date 
+          <i class="fa" 
+             [class.fa-sort]="sortDirection() === null" 
+             [class.fa-sort-asc]="sortDirection() === 'asc'" 
+             [class.fa-sort-desc]="sortDirection() === 'desc'" 
+             style="margin-left: 5px;"></i>
+        </th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pagedOrders(); let i = index">
+        <td>{{ ((currentPage() - 1) * pageSize()) + i + 1 }}</td>
+        <td>{{ item?.name || item?.Name }}</td>
+        <td>{{ item?.pmtType || item?.PmtType }}</td>
+        <td>{{ item?.disc || item?.Disc }}</td>
+        <td>{{ item?.taxes || item?.Taxes }}</td>
+        <td>{{ item?.totalAmt || item?.TotalAmt }}</td>
+        <td>{{ item?.orderDate || item?.OrderDate }}</td>
+        <td>
+            <a class="btn btn-sm btn-info" [routerLink]="['/order-details', item?.ordId || item?.OrdId]" aria-label="Details" data-toggle="tooltip" data-placement="top" title="View Details">
+                <i class="fa fa-info" aria-hidden="true"></i>
+            </a>
+        </td>
+      </tr>
+      <tr *ngIf="pagedOrders().length === 0">
+        <td colspan="8" class="text-center">No orders found.</td>
+      </tr>
+    </tbody>
+ </table>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 page-item">
+      <div>
+        <!-- 💡 Switched count to use the computed processedOrders length layout safely -->
+        <span>Showing {{ pagedOrders().length }} of {{ processedOrders().length }} records</span>
+      </div>
+    <div>
+  <div>
+    <ul class="pagination" style="margin: 0;">
+      <li [class.disabled]="currentPage() === 1">
+        <a href="javascript:void(0)" (click)="prevPage()"><i class="fa fa-angle-left"></i> Previous</a>
+      </li>
+      <li class="active">
+        <span>Page {{ currentPage() }} of {{ totalPages() }}</span>
+      </li>
+      <li [class.disabled]="currentPage() === totalPages()">
+        <a href="javascript:void(0)" (click)="nextPage()">Next <i class="fa fa-angle-right"></i></a>
+      </li>
+    </ul>
+  </div>
+</div>

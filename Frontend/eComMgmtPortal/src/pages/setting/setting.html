@@ -1,0 +1,39 @@
+<h1 class="page-header">
+  Setting
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a href="/dashboard">Home</a></li>
+  <li>Setting</li>
+</ol>
+<form class="form-horizontal col-md-8" (ngSubmit)="onSave()">
+  <!-- Website Name -->
+  <div class="form-group">
+    <label class="control-label col-md-4">Website Name:</label>
+    <div class="col-md-8">
+      <input type="text" class="form-control" name="webName">
+    </div>
+  </div>
+  <!-- Motto -->
+  <div class="form-group">
+    <label class="control-label col-md-4">Motto:</label>
+    <div class="col-md-8">
+      <input type="text" class="form-control" name="motto">
+    </div>
+  </div>
+  <!-- Theme Color -->
+  <div class="form-group">
+    <label class="control-label col-md-4">Theme Color:</label>
+    <div class="col-md-8">
+      <select class="form-control" name="themeColor">
+        <option value="">--Select color--</option>
+        <option *ngFor="let c of colors" [value]="c.value">
+          {{ c.text }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <!-- Save button -->
+  <button type="submit" class="btn btn-primary col-lg-offset-4">
+    Save
+  </button>
+</form>

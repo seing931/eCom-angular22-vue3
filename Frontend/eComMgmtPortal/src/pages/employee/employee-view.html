@@ -1,0 +1,51 @@
+<h1 class="page-header">
+  Employee <small>Details</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/employee">Employee</a></li>
+  <li>Details</li>
+</ol>
+<div class="row">
+ <div class="col-md-8">
+     <dl class="dl-horizontal ">
+        <dt>First Name :</dt>
+        <dd>{{ empSignal()?.firstName }}</dd>
+        
+        <dt>Last Name :</dt>
+        <dd>{{ empSignal()?.lastName }}</dd>
+        
+        <dt>Age :</dt>
+        <dd>{{ empSignal()?.age }}</dd>
+        
+        <dt>Gender :</dt>
+        <dd>
+        {{ (empSignal()?.gender === 'M') ? 'Male' : 
+           (empSignal()?.gender === 'F') ? 'Female' :  'N/A' }}
+        </dd>
+        
+        <dt>Date of Birth :</dt>
+        <dd>{{ (empSignal()?.dateofBirth || empSignal()?.dateOfBirth) | date:'yyyy-MM-dd' }}</dd>
+        
+        <dt>Email :</dt>
+        <dd>{{ empSignal()?.email }}</dd>
+
+        <dt>Phone :</dt>
+        <dd>{{ empSignal()?.phone }}</dd>
+        
+        <dt>Mobile :</dt>
+        <dd>{{ empSignal()?.mobile }}</dd>
+        
+        <dt>Address :</dt>
+        <dd>{{ empSignal()?.address }}</dd>
+     </dl>
+ </div>
+  <div class="col-md-4">
+    <div>
+        <img [src]=" empSignal()?.photoPath  ? imgBaseServ + empSignal()?.photoPath : 'ProfileImage.jpg'" alt="Profile Avatar" class="img-thumbnail" width="200" height="200" />
+    </div>
+  </div>
+</div>
+<p>
+  <button class="btn btn-primary" routerLink="/employee">Back</button>
+</p>

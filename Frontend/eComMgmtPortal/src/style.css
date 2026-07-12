@@ -1,0 +1,46 @@
+a.back-link,
+a.back-link:visited,
+a.back-link:hover,
+a.back-link:active {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.required-asterisk {
+  color: #ff0000; /* Red */
+  margin-left: 2px; /* Optional: adds a tiny space before the asterisk */
+}
+
+.rcd{
+  margin-bottom: 15px; 
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.page-item{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%;
+}
+
+.first-line{
+  margin-top: 15px; 
+  margin-bottom: 15px;
+}
+
+.scd-line{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  gap: 10px;
+}
+
+.thd-line{
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+  flex-wrap: wrap;
+}

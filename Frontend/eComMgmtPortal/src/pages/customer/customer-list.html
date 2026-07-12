@@ -1,0 +1,80 @@
+<h1 class="page-header"> Customer </h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li>Customer</li>
+</ol>
+<div class="row" style="margin-top: 10px;">
+  <div class="col-xs-10 page-item">
+    <div>
+      <a routerLink="/customer-add" class="btn btn-primary"><i class="fa fa-plus"></i></a>  
+    </div>
+    <div class="form-inline">
+      <label for="pageSize" style="margin-right: 5px;">Show: </label>
+      <select id="pageSize" class="form-control input-sm" [ngModel]="pageSize()" (ngModelChange)="onPageSizeChange($event)">
+          <option *ngFor="let size of allowedPageSizes" [value]="size">{{ size }} records</option>
+      </select>
+   </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+ <table class="table table-hover table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Country</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pagedCustomers(); let i = index">
+        <td>{{ ((currentPage() - 1) * pageSize()) + i + 1 }}</td>
+        <td>{{ item?.firstName || item?.FirstName }}</td>
+        <td>{{ item?.lastName || item?.LastName }}</td>
+        <td>{{ item?.age || item?.Age }}</td>
+        <td>{{ item?.country || item?.Country }}</td>
+        <td>{{ item?.email || item?.Email }}</td>
+        <td>{{ item?.mobile1 || item?.Mobile1 || item?.mobile || item?.Mobile }}</td>
+        <td>
+            <a class="btn btn-sm btn-primary" [routerLink]="['/customer-upd', item?.custId || item?.CustId || item?.custID || item?.CustID]" aria-label="Edit" data-toggle="tooltip" data-placement="top" title="Edit">
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-sm btn-info" [routerLink]="['/customer-view', item?.custId || item?.CustId || item?.custID || item?.CustID]" aria-label="Details" data-toggle="tooltip" data-placement="top" title="View Details">
+                <i class="fa fa-info" aria-hidden="true"></i>
+            </a>
+           <a class="btn btn-sm btn-danger" (click)="deleteCust(item?.custId || item?.CustId || item?.custID || item?.CustID)" aria-label="Delete" data-toggle="tooltip" data-placement="top" title="Delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a> 
+        </td>
+      </tr>
+      <tr *ngIf="pagedCustomers().length === 0">
+        <td colspan="8" class="text-center">No customers found.</td>
+      </tr>
+    </tbody>
+ </table>
+</div>
+<div class="row" style="margin-top: 10px;">
+   <div class="col-xs-10 page-item">
+      <div>
+        <span>Showing {{ pagedCustomers().length }} of {{ customersSignal().length }} records</span>
+    </div>
+    <div>
+        <ul class="pagination" style="margin: 0;">
+        <li [class.disabled]="currentPage() === 1">
+          <a href="javascript:void(0)" (click)="prevPage()"><i class="fa fa-angle-left"></i> Previous</a>
+        </li>
+        <li class="active">
+            <span>Page {{ currentPage() }} of {{ totalPages() }}</span>
+        </li>
+        <li [class.disabled]="currentPage() === totalPages()">
+            <a href="javascript:void(0)" (click)="nextPage()">Next <i class="fa fa-angle-right"></i></a>
+        </li>
+        </ul>
+      </div>
+   </div>
+</div>

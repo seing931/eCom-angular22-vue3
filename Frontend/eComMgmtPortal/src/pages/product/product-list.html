@@ -1,0 +1,95 @@
+<h1 class="page-header"> Product </h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li>Product</li>
+</ol>
+
+<div class="row" class="first-line">
+  <div class="col-xs-12" class="scd-line">
+    <div class="thd-line">
+      <div class="form-inline">
+        <input 
+          id="searchFilter" 
+          type="text" 
+          class="form-control input-sm" 
+          placeholder="Search by Product Name" 
+          [ngModel]="searchTerm()" 
+          (ngModelChange)="onSearchChange($event)" />
+      </div>
+      <div>
+        <a routerLink="/product-add" class="btn btn-primary"><i class="fa fa-plus"></i></a>  
+      </div>
+    </div>
+    <div class="form-inline">
+      <label for="pageSize" style="margin-right: 5px;">Show: </label>
+      <select id="pageSize" class="form-control input-sm" [ngModel]="pageSize()" (ngModelChange)="onPageSizeChange($event)">
+        <option *ngFor="let size of allowedPageSizes" [value]="size">{{ size }} records</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+ <table class="table table-hover table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Product Name</th>
+        <th>Unit Price</th>
+        <th>Old Price</th>
+        <th>Discount</th>
+        <th>Unit In Stock</th>
+        <th>Unit On Order</th>
+        <th>Product Ava.</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pagedProds(); let i = index">
+        <td>{{ ((currentPage() - 1) * pageSize()) + i + 1 }}</td>
+        <td>{{ item?.name || item?.Name }}</td>
+        <td>{{ item?.unitPrice || item?.UnitPrice }}</td>
+        <td>{{ item?.oldPrice || item?.OldPrice }}</td>
+        <td>{{ item?.disc || item?.Disc }}</td>
+        <td>{{ item?.unitInStock || item?.UnitInStock }}</td>
+        <td>{{ item?.unitOnOrder || item?.UnitOnOrder }}</td>
+        <td>{{ (item?.productAvailable ?? item?.ProductAvailable) ? 'Yes' : 'No' }}</td>
+        <td>
+            <a class="btn btn-sm btn-primary" [routerLink]="['/product-upd', item?.prodID || item?.prodId]" aria-label="Edit" data-toggle="tooltip" data-placement="top" title="Edit">
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-sm btn-info" [routerLink]="['/product-view', item?.prodID || item?.prodId]" aria-label="Details" data-toggle="tooltip" data-placement="top" title="View Details">
+                <i class="fa fa-info" aria-hidden="true"></i>
+            </a>
+           <a class="btn btn-sm btn-danger" (click)="deleteProd(item?.prodID || item?.prodId)" aria-label="Delete" data-toggle="tooltip" data-placement="top" title="Delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a> 
+        </td>
+      </tr>
+      <tr *ngIf="pagedProds().length === 0">
+        <td colspan="9" class="text-center">No products found.</td>
+      </tr>
+    </tbody>
+ </table>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+  <div class="col-xs-10 page-item">
+    <div>
+        <span>Showing {{ pagedProds().length }} of {{ filteredProds().length }} records</span>
+    </div>
+      <div>
+    <ul class="pagination" style="margin: 0;">
+      <li [class.disabled]="currentPage() === 1">
+        <a href="javascript:void(0)" (click)="prevPage()"><i class="fa fa-angle-left"></i> Previous</a>
+      </li>
+      <li class="active">
+        <span>Page {{ currentPage() }} of {{ totalPages() }}</span>
+      </li>
+      <li [class.disabled]="currentPage() === totalPages()">
+        <a href="javascript:void(0)" (click)="nextPage()">Next <i class="fa fa-angle-right"></i></a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</div>

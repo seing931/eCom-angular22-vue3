@@ -1,0 +1,211 @@
+<h1 class="page-header">
+  Product <small>Add</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/product">Product</a></li>
+  <li>Add</li>
+</ol>
+
+<form [formGroup]="prodForm" (ngSubmit)="addProd()" class="form-horizontal">
+  <div class="col-md-8">
+    
+    <div class="form-group" [class.has-error]="prodForm.get('name')?.invalid && prodForm.get('name')?.touched">
+      <label class="control-label col-md-3">Product Name <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+         <input class="form-control" formControlName="name" />
+      </div>
+    </div>
+
+    <div class="form-group" [class.has-error]="prodForm.get('suppID')?.invalid && prodForm.get('suppID')?.touched">
+      <label class="control-label col-md-3">Supplier <span class="required-asterisk">*</span> :</label>
+       <div class="col-md-9">
+          <select class="form-control" formControlName="suppID">
+            <option value="">-- Select Supplier --</option>
+            <option *ngFor="let s of suppliers" [value]="s.suppID">{{ s.suppName }}</option>
+          </select>
+       </div>
+     </div>
+
+     <div class="form-group" [class.has-error]="prodForm.get('catID')?.invalid && prodForm.get('catID')?.touched">
+      <label class="control-label col-md-3">Category <span class="required-asterisk">*</span> :</label>
+       <div class="col-md-9">
+            <select class="form-control" formControlName="catID">
+              <option value="">-- Select Category --</option>
+              <option *ngFor="let c of categories" [value]="c.catID">{{ c.catName }}</option>
+          </select>
+       </div>
+     </div>
+
+     <div class="form-group" [class.has-error]="prodForm.get('subCatID')?.invalid && prodForm.get('subCatID')?.touched">
+      <label class="control-label col-md-3">Sub Category <span class="required-asterisk">*</span> :</label>
+       <div class="col-md-9">
+          <select class="form-control" formControlName="subCatID">
+            <option value="">-- Select Sub Category --</option>
+            <option *ngFor="let sc of subCategories" [value]="sc.subCatID">{{ sc.subCatName }}</option>
+        </select>
+       </div>
+     </div>
+
+      <div class="form-group" [class.has-error]="prodForm.get('qtyPerUnit')?.invalid && prodForm.get('qtyPerUnit')?.touched">
+      <label class="control-label col-md-3">Qty Per Unit <span class="required-asterisk">*</span> :</label>
+       <div class="col-md-9">
+          <input type="number" class="form-control" formControlName="qtyPerUnit" />
+       </div>
+     </div>
+
+      <div class="form-group" [class.has-error]="prodForm.get('unitPrice')?.invalid && prodForm.get('unitPrice')?.touched">
+      <label class="control-label col-md-3">Unit Price <span class="required-asterisk">*</span> :</label>
+       <div class="col-md-9">
+          <input type="number" class="form-control" formControlName="unitPrice" />
+          <span class="help-block" *ngIf="prodForm.get('unitPrice')?.invalid && prodForm.get('unitPrice')?.touched">A valid price entry ≥ 0 is required.</span>
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Old Price :</label>
+       <div class="col-md-9">
+          <input type="number" class="form-control" formControlName="oldPrice" />
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Unit Weight :</label>
+       <div class="col-md-9">
+          <input class="form-control" formControlName="unitWeight" />
+       </div>
+     </div>
+
+     <div class="form-group">
+      <label class="control-label col-md-3">Size :</label>
+       <div class="col-md-9">
+          <input class="form-control" formControlName="size" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Discount :</label>
+       <div class="col-md-9">
+          <input type="number" class="form-control" formControlName="disc" />
+       </div>
+     </div>
+
+    <div class="form-group" [class.has-error]="prodForm.get('unitInStock')?.invalid && prodForm.get('unitInStock')?.touched">
+      <label class="control-label col-md-3">Unit In Stock <span class="required-asterisk">*</span> :</label>
+       <div class="col-md-9">
+          <input type="number" class="form-control" formControlName="unitInStock" />
+          <span class="help-block" *ngIf="prodForm.get('unitInStock')?.invalid && prodForm.get('unitInStock')?.touched">Please enter structural stock metrics ≥ 0.</span>
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Unit On Order :</label>
+       <div class="col-md-9">
+          <input type="number" class="form-control" formControlName="unitOnOrder" />
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Product Ava.:</label>
+       <div class="col-md-9">
+          <input type="checkbox" class="form-check-input" formControlName="productAvailable" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Alt Text :</label>
+       <div class="col-md-9">
+          <input class="form-control" formControlName="altText" />
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Add Badge :</label>
+       <div class="col-md-9">
+          <input type="checkbox" class="form-check-input" formControlName="addBadge" />
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Offer Title :</label>
+       <div class="col-md-9">
+          <input class="form-control" formControlName="offerTitle" />
+       </div>
+     </div>
+
+     <div class="form-group">
+      <label class="control-label col-md-3">Offer Badge Class :</label>
+       <div class="col-md-9">
+          <input class="form-control" formControlName="offerBadgeClass" />
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Short Desc. :</label>
+       <div class="col-md-9">
+          <input class="form-control" formControlName="shortDesc" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Long Desc. :</label>
+       <div class="col-md-9">
+          <angular-editor formControlName="longDesc"></angular-editor>
+       </div>
+     </div>
+     
+    <div class="form-group">
+      <label class="control-label col-md-3">Picture 1 :</label>
+       <div class="col-md-9">
+          <input type="file" class="form-control" (change)="onFileSelected($event,1)">
+       </div>
+     </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">Picture 2 :</label>
+       <div class="col-md-9">
+          <input type="file" class="form-control" (change)="onFileSelected($event,2)">
+       </div>
+     </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">Picture 3 :</label>
+       <div class="col-md-9">
+          <input type="file" class="form-control" (change)="onFileSelected($event,3)">
+       </div>
+     </div>
+    <div class="form-group">
+      <label class="control-label col-md-3">Picture 4 :</label>
+       <div class="col-md-9">
+          <input type="file" class="form-control" (change)="onFileSelected($event,4)">
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3">Note :</label>
+       <div class="col-md-9">
+         <textarea rows="3" class="form-control" formControlName="note"></textarea>
+       </div>
+     </div>
+
+     <div class="form-group">
+      <div class="col-md-offset-3 col-md-10">
+         <input type="submit" value="Save" class="btn btn-primary" [disabled]="isSaving" />
+         <a routerLink="/product" class="btn btn-primary" style="margin-left: 5px;">Back</a> 
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div>
+        <img [src]="imagePreview ? imagePreview : 'blank.jpg'" alt="Preview" class="img-thumbnail" width="250" height="250" />
+    </div>
+    <div *ngIf="selectedFile" style="margin-top: 5px; word-break: break-all;">
+        <small class="text-muted"><i class="fa fa-file-image-o"></i> {{ selectedFile.name }}</small>
+    </div>
+    <br />
+    <div>
+        <input type="file" #fileInput style="display: none;" (change)="onFileChange($event)" accept="image/*" />
+        <button type="button" class="btn btn-sm btn-primary" (click)="fileInput.click()"> <i class="fa fa-fw fa-folder-open-o"></i> Browse</button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="clearImage()"> <i class="fa fa-fw fa-remove"></i> Clear</button>
+    </div>
+  </div>
+</form>

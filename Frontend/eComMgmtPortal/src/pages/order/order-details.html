@@ -1,0 +1,94 @@
+<h1 class="page-header">
+  Order <small>Details</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/order">Order</a></li>
+  <li>Details</li>
+</ol>
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal ">
+            <dt>Order ID :</dt>
+            <dd>{{ orderSignal()?.ordId}}</dd>
+            
+            <dt>Customer Name :</dt>
+            <dd>{{ orderSignal()?.name }}</dd>
+            
+            <dt>Customer Address :</dt>
+            <dd>{{ orderSignal()?.custAdd }}</dd>
+            
+            <dt>Contact No :</dt>
+            <dd>{{ orderSignal()?.contactNo }}</dd>
+         </dl>
+     </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal ">           
+            <dt>Payment Type :</dt>
+            <dd>{{ orderSignal()?.payDesc }}</dd>
+            
+            <dt>Shipping ID :</dt>
+            <dd>{{ orderSignal()?.shipID }}</dd>
+            
+            <dt>Shipping Address :</dt>
+            <dd>{{ orderSignal()?.shipAdd }}</dd>
+        </dl>
+    </div>
+</div>
+ <div class="row">
+    <div class="panel panel-primary">
+         <div class="panel-heading" style="padding:5px 15px">
+            <h4>Items</h4>
+        </div>
+        <div class="panel-body">
+             <div class="row">
+                <div class="">
+                    <div class="table-responsive col-md-off ">
+                      <table class="table table-hover">
+                        <thead>
+                            <tr>
+                            <th>S.No</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of orderSignal()?.items; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ item?.prodName || item?.ProdName }}</td>
+                            <td>{{ item?.qty || item?.Qty }}</td>
+                            <td>{{ (item?.unitPrice || item?.UnitPrice) | number:'1.2-2' }}</td>
+                            <td>{{ (item?.totalAmt || item?.TotalAmt) | number:'1.2-2' }}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>{{ orderSignal()?.sumQty || orderSignal()?.SumQty }}</th>
+                                <th></th>
+                                <th>{{ (orderSignal()?.sumAmt || orderSignal()?.SumAmt) | number:'1.2-2' }}</th>
+                            </tr>
+                            <tr>
+                                <th>Discount</th>
+                                <th colspan="3"></th>
+                                <th>{{ (orderSignal()?.disc || orderSignal()?.Disc) | number:'1.2-2' }}</th>
+                            </tr>
+                            <tr class="table-info">
+                                <th>Total Amount</th>
+                                <th colspan="3"></th>
+                                <th>{{ (orderSignal()?.sumAmtAftDisc || orderSignal()?.SumAmtAftDisc) | number:'1.2-2' }}</th>
+                            </tr>
+                        </tfoot>
+                        </table>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+ </div>
+<p>
+  <button class="btn btn-primary" routerLink="/order">Back</button>
+</p>

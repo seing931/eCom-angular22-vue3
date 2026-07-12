@@ -1,0 +1,192 @@
+<h1 class="page-header">
+  Customer <small>Edit</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/customer">Customer</a></li>
+  <li>Edit</li>
+</ol>
+
+<form [formGroup]="custForm" (ngSubmit)="updateCustomer()" class="form-horizontal">
+  <div class="col-md-8">
+    
+    <div class="form-group" [class.has-error]="custForm.get('firstName')?.invalid && custForm.get('firstName')?.touched">
+      <label class="control-label col-md-3">First Name <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+         <input class="form-control" formControlName="firstName" />
+      </div>
+    </div>
+    
+     <div class="form-group" [class.has-error]="custForm.get('lastName')?.invalid && custForm.get('lastName')?.touched">
+      <label class="control-label col-md-3">Last Name <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+         <input class="form-control" formControlName="lastName" />
+      </div>
+    </div>
+
+  <div class="form-group" [class.has-error]="custForm.get('userName')?.invalid && custForm.get('userName')?.touched">
+  <label class="control-label col-md-3">Username <span class="required-asterisk">*</span> :</label>
+  <div class="col-md-9">
+    <input class="form-control" formControlName="userName" />
+  </div>
+</div>
+
+<div class="form-group" [class.has-error]="custForm.get('password')?.invalid && custForm.get('password')?.touched">
+  <label class="control-label col-md-3">Password <span class="required-asterisk">*</span> :</label>
+  <div class="col-md-9">
+    <input type="password" class="form-control" formControlName="password" />
+  </div>
+</div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Age :</label>
+       <div class="col-md-9">
+            <input type="number" class="form-control" formControlName="age" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Gender :</label>
+       <div class="col-md-9">
+        <select class="form-control" formControlName="gender">
+            <option value="">-- Select --</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Date of Birth :</label>
+       <div class="col-md-9">
+           <input type="date" class="form-control" formControlName="dateofBirth" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Organization :</label>
+       <div class="col-md-9">
+            <input class="form-control" formControlName="organization" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Country :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="country" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">State :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="state" />
+       </div>
+     </div>
+
+     <div class="form-group">
+      <label class="control-label col-md-3">City :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="city" />
+       </div>
+     </div>
+
+     <div class="form-group">
+      <label class="control-label col-md-3">Postal Code :</label>
+       <div class="col-md-9">
+           <input type="number" class="form-control" formControlName="postalCode" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Email :</label>
+       <div class="col-md-9"> 
+           <input class="form-control" formControlName="email" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Alt Email :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="altEmail" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Phone 1 :</label>
+       <div class="col-md-9">
+            <input class="form-control" formControlName="phone1" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Phone 2 :</label>
+       <div class="col-md-9">
+            <input class="form-control" formControlName="phone2" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Mobile 1 :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="mobile1" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Mobile 2 :</label>
+       <div class="col-md-9">
+            <input class="form-control" formControlName="mobile2" />
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Address 1 :</label>
+       <div class="col-md-9">
+           <textarea rows="3" class="form-control" formControlName="address1"></textarea>
+       </div>
+     </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-3">Address 2 :</label>
+       <div class="col-md-9">
+          <textarea rows="3" class="form-control" formControlName="address2"></textarea>
+       </div>
+     </div>
+
+      <div class="form-group">
+       <label class="control-label col-md-3">Status :</label>
+       <div class="col-md-9">
+           <input class="form-control" formControlName="status" />
+       </div>
+     </div>
+
+     <div class="form-group">
+       <label class="control-label col-md-3">Notes :</label>
+       <div class="col-md-9">
+           <textarea rows="3" class="form-control" formControlName="notes"></textarea>
+       </div>
+     </div>
+      <div class="form-group">
+        <div class="col-md-offset-3 col-md-4">
+            <input type="submit" value="Update" class="btn btn-primary" [disabled]="isSaving" />
+             <a routerLink="/customer" class="btn btn-primary" style="margin-left: 5px;">Back</a> 
+        </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <input type="file" #fileInput style="display: none;" (change)="onFileChange($event)" accept="image/*" />
+    <div>
+        <img [src]="imagePreview ? imagePreview : 'ProfileImage.jpg'" alt="Profile Thumbnail Preview" class="img-thumbnail" width="200" height="200" />
+    </div>
+    <div *ngIf="selectedFile" style="margin-top: 5px; word-break: break-all;">
+        <small class="text-muted"><i class="fa fa-file-image-o"></i> {{ selectedFile.name }}</small>
+    </div>
+    <br />
+    <div>
+        <button type="button" class="btn btn-sm btn-primary" (click)="fileInput.click()"> <i class="fa fa-fw fa-folder-open-o"></i> Browse</button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="clearImage()"> <i class="fa fa-fw fa-remove"></i> Clear</button>
+    </div>
+  </div>
+</form>

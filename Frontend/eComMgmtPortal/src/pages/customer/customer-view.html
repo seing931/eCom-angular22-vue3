@@ -1,0 +1,94 @@
+<h1 class="page-header">
+  Customer <small>Details</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/customer">Customer</a></li>
+  <li>Details</li>
+</ol>
+<div class="row">
+ <div class="col-md-8">
+     <dl class="dl-horizontal ">
+        <dt>First Name :</dt>
+        <dd>{{ custSignal()?.firstName }}</dd>
+        
+        <dt>Last Name :</dt>
+        <dd>{{ custSignal()?.lastName }}</dd>
+        
+        <dt>User Name :</dt>
+        <dd>{{ custSignal()?.userName }}</dd>
+        
+        <dt>Age :</dt>
+        <dd>{{ custSignal()?.age }}</dd>
+        
+        <dt>Gender :</dt>
+
+        <dd>
+        {{ (custSignal()?.gender === 'M') ? 'Male' : 
+           (custSignal()?.gender === 'F') ? 'Female' :  'N/A' }}
+        </dd>
+        
+        <dt>Date of Birth :</dt>
+        <dd>{{ (custSignal()?.dateofBirth || custSignal()?.dateOfBirth) | date:'yyyy-MM-dd' }}</dd>
+        
+        <dt>Organization :</dt>
+        <dd>{{ custSignal()?.organization }}</dd>
+        
+        <dt>Country :</dt>
+        <dd>{{ custSignal()?.country }}</dd>
+        
+        <dt>State :</dt>
+        <dd>{{ custSignal()?.state }}</dd>
+        
+        <dt>City :</dt>
+        <dd>{{ custSignal()?.city }}</dd>
+        
+        <dt>PostalCode :</dt>
+        <dd>{{ custSignal()?.postalCode}}</dd>
+        
+        <dt>Email :</dt>
+        <dd>{{ custSignal()?.email }}</dd>
+        
+        <dt>Alt Email :</dt>
+        <dd>{{ custSignal()?.altEmail }}</dd>
+        
+        <dt>Phone 1 :</dt>
+        <dd>{{ custSignal()?.phone1 }}</dd>
+        
+        <dt>Phone 2 :</dt>
+        <dd>{{ custSignal()?.phone2 }}</dd>
+        
+        <dt>Mobile 1 :</dt>
+        <dd>{{ custSignal()?.mobile1 }}</dd>
+        
+        <dt>Mobile 2 :</dt>
+        <dd>{{ custSignal()?.mobile2 }}</dd>
+        
+        <dt>Address 1 :</dt>
+        <dd>{{ custSignal()?.address1 }}</dd>
+        
+        <dt>Address 2 :</dt>
+        <dd>{{ custSignal()?.address2 }}</dd>
+                
+        <dt>Status :</dt>
+        <dd>{{ custSignal()?.status}}</dd>
+        
+        <dt>Last Login :</dt>
+        <dd>{{ custSignal()?.lastLogin }}</dd>
+        
+        <dt>Created :</dt>
+        <dd>{{ custSignal()?.created}}</dd>
+        
+        <dt>Notes :</dt>
+        <dd>{{ custSignal()?.notes }}</dd>
+     </dl>
+ </div>
+<div class="col-md-4">
+    <div>
+        <img [src]=" custSignal()?.picture ? imgBaseServ + custSignal()?.picture : 'ProfileImage.jpg'" alt="Profile Avatar" class="img-thumbnail" width="200" height="200" />
+    </div>
+  </div>
+</div>
+<p>
+  <button class="btn btn-primary" routerLink="/customer">Back</button>
+</p>

@@ -1,0 +1,37 @@
+<h1 class="page-header">
+  Supplier <small>Details</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/supplier">Supplier</a></li>
+  <li>Details</li>
+</ol>
+<div class="row">
+ <div class="col-md-8">
+     <dl class="dl-horizontal ">
+        <dt>Company Name :</dt>
+        <dd>{{ suppSignal()?.compName}}</dd>
+        <dt>Contact Name :</dt>
+        <dd>{{ suppSignal()?.contactName}}</dd>
+        <dt>Contact Title :</dt>
+        <dd>{{ suppSignal()?.contactTitle}}</dd>
+        <dt>Email :</dt>
+        <dd>{{ suppSignal()?.email}}</dd>      
+        <dt>Phone :</dt>
+        <dd>{{ suppSignal()?.phone}}</dd>   
+        <dt>Mobile :</dt>
+        <dd>{{ suppSignal()?.mobile}}</dd>
+        <dt>Fax :</dt>
+        <dd>{{ suppSignal()?.fax}}</dd>     
+        <dt>City :</dt>
+        <dd>{{ suppSignal()?.city}}</dd>
+        <dt>Country :</dt>
+        <dd>{{ suppSignal()?.country}}</dd>
+        <dt>Address :</dt>
+        <dd>{{ suppSignal()?.address}}</dd>       
+     </dl>
+ </div>
+</div>
+<p>
+  <button class="btn btn-primary" routerLink="/supplier">Back</button>
+</p>

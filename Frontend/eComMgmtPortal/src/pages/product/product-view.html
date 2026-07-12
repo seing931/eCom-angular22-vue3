@@ -1,0 +1,105 @@
+<h1 class="page-header">
+  Product <small>Details</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li><a routerLink="/product">Product</a></li>
+  <li>Details</li>
+</ol>
+<div class="row">
+ <div class="col-md-8">
+     <dl class="dl-horizontal ">
+        <dt>Product Name :</dt>
+        <dd>{{ prodSignal()?.name}}</dd>
+
+        <dt>Supplier :</dt>
+        <dd>{{ prodSignal()?.suppDesc}}</dd>  
+
+        <dt>Category :</dt>
+        <dd>{{ prodSignal()?.catDesc}}</dd>
+        
+        <dt>Sub Category :</dt>
+        <dd>{{ prodSignal()?.subcatDesc }}</dd>
+        
+        <dt>Qty Per Unit :</dt>
+        <dd>{{ prodSignal()?.qtyPerUnit}}</dd>
+        
+        <dt>Unit Price :</dt>
+        <dd>{{ prodSignal()?.unitPrice}}</dd>
+        
+        <dt>Old Price :</dt>
+        <dd>{{ prodSignal()?.oldPrice}}</dd>
+        
+        <dt>Unit Weight :</dt>
+        <dd>{{ prodSignal()?.unitWeight}}</dd>
+        
+        <dt>Size :</dt>
+        <dd>{{ prodSignal()?.size}}</dd>
+        
+        <dt>Discount :</dt>
+        <dd>{{ prodSignal()?.disc}}</dd>
+        
+        <dt>Unit In Stock :</dt>
+        <dd>{{ prodSignal()?.unitInStock}}</dd>
+        
+        <dt>Unit On Order :</dt>
+        <dd>{{ prodSignal()?.unitOnOrder}}</dd>
+        
+        <dt>Product Ava :</dt>
+        <dd>{{ (prodSignal()?.productAvailable ?? prodSignal()?.ProductAvailable) ? 'Yes' : 'No' }}</dd>
+
+        <dt>Alt Text :</dt>
+        <dd>{{ prodSignal()?.altText}}</dd>
+
+        <dt>Add Badge :</dt>
+        <dd>{{ (prodSignal()?.addBadge ?? prodSignal()?.addBadge) ? 'Yes' : 'No' }}</dd>
+
+        <dt>Offer Title :</dt>
+        <dd>{{ prodSignal()?.offerTitle}}</dd>
+
+        <dt>Offer Badge Class :</dt>
+        <dd>{{ prodSignal()?.offerBadgeClass}}</dd>
+
+        <dt>Short Desc :</dt>
+        <dd>{{ prodSignal()?.shortDesc}}</dd>
+
+        <dt>Long Desc :</dt>
+        <dd [innerHTML]="prodSignal()?.longDesc" class="well text-display-box"></dd>
+        
+        <dt>Picture 1 :</dt>
+        <dd>
+            <img *ngIf="prodSignal()?.picture1" [src]="imgBaseServ + prodSignal()?.picture1" alt="Picture 1" class="img-thumbnail" width="200" height="200" />
+            <span *ngIf="!prodSignal()?.picture1" class="text-muted">No Image</span>
+        </dd>
+        
+        <dt>Picture 2 :</dt>
+        <dd>
+            <img *ngIf="prodSignal()?.picture2" [src]="imgBaseServ + prodSignal()?.picture2" alt="Picture 2" class="img-thumbnail" width="200" height="200" />
+            <span *ngIf="!prodSignal()?.picture2" class="text-muted">No Image</span>
+        </dd>
+        
+        <dt>Picture 3 :</dt>
+        <dd>
+            <img *ngIf="prodSignal()?.picture3" [src]="imgBaseServ + prodSignal()?.picture3" alt="Picture 3" class="img-thumbnail" width="200" height="200" />
+            <span *ngIf="!prodSignal()?.picture3" class="text-muted">No Image</span>
+        </dd>
+        
+        <dt>Picture 4 :</dt>
+        <dd>
+            <img *ngIf="prodSignal()?.picture4" [src]="imgBaseServ + prodSignal()?.picture4" alt="Picture 4" class="img-thumbnail" width="200" height="200" />
+            <span *ngIf="!prodSignal()?.picture4" class="text-muted">No Image</span>
+        </dd>
+        
+        <dt>Note :</dt>
+        <dd>{{ prodSignal()?.note}}</dd>
+     </dl>
+ </div>
+ <div class="col-md-4">
+    <div>
+        <img [src]=" prodSignal()?.imageURL ? imgBaseServ + prodSignal()?.imageURL : 'blank.jpg'" [alt]="prodSignal()?.altText" class="img-thumbnail" width="250" height="250" />
+    </div>
+  </div>
+</div>
+<p>
+  <button class="btn btn-primary" routerLink="/product">Back</button>
+</p>

@@ -1,0 +1,98 @@
+<h1 class="page-header">
+  Profile <small>Edit</small>
+</h1>
+<ol class="breadcrumb">
+  <li><i class="fa fa-dashboard" style="margin-right: 5px;"></i> <a routerLink="/dashboard">Home</a></li>
+  <li>Profile</li>
+  <li>Edit</li>
+</ol>
+
+<form [formGroup]="profileForm" (ngSubmit)="save()" class="form-horizontal">
+  <input type="hidden" formControlName="empID">
+  <div class="col-md-8">
+    <div class="form-group" [class.has-error]="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid">
+      <label class="control-label col-md-3">First Name <span class="required-asterisk">*</span> :</label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" formControlName="firstName">
+      </div>
+  </div>
+  <div class="form-group" [class.has-error]="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid">
+    <label class="control-label col-md-3">Last Name <span class="required-asterisk">*</span> :</label>
+     <div class="col-md-9">
+       <input type="text" class="form-control" formControlName="lastName">
+     </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Age :</label>
+     <div class="col-md-9">
+          <input type="number" class="form-control" formControlName="age">
+     </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Gender :</label>
+     <div class="col-md-9">
+        <select class="form-control" formControlName="gender">
+          <option value="">-- Select Gender --</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+       </select>
+     </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Date of Birth :</label>
+     <div class="col-md-9">
+         <input type="date" class="form-control" formControlName="dateofBirth">
+     </div>
+  </div>
+  <div class="form-group" [class.has-error]="profileForm.get('email')?.touched && profileForm.get('email')?.invalid">
+    <label class="control-label col-md-3">Email <span class="required-asterisk">*</span> :</label>
+     <div class="col-md-9"> 
+      <input type="email" class="form-control" formControlName="email">
+      <span class="help-block" *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.hasError('email')">
+          Invalid email address syntax context.
+      </span>
+     </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Phone :</label>
+     <div class="col-md-9">
+          <input type="text" class="form-control" formControlName="phone">
+     </div>
+  </div>
+  <div class="form-group" [class.has-error]="profileForm.get('mobile')?.touched && profileForm.get('mobile')?.invalid">
+    <label class="control-label col-md-3">Mobile <span class="required-asterisk">*</span> :</label>
+    <div class="col-md-9">
+        <input type="text" class="form-control" formControlName="mobile">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3">Address :</label>
+     <div class="col-md-9">
+       <textarea rows="3" class="form-control" formControlName="address"></textarea>
+     </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-3 col-md-9">
+        <input type="submit" value="Update" class="btn btn-primary" [disabled]="isSaving" />
+    </div>
+  </div>
+</div>
+  <div class="col-md-4">
+  <div>
+     <img [src]="imagePreview ? imagePreview : 'ProfileImage.jpg'" alt="Profile Avatar" class="img-thumbnail" width="200" height="200" />
+  </div>
+  <div *ngIf="selectedFile" style="margin-top: 5px; word-break: break-all;">
+    <small class="text-muted"><i class="fa fa-file-image-o"></i> {{ selectedFile.name }}</small>
+  </div>
+  <br />
+  <div>
+    <input type="file" #fileInput style="display: none;" (change)="onFileChange($event, 1)" accept=".jpg,.jpeg,.png,.webp" />
+      <button type="button" class="btn btn-sm btn-primary" (click)="fileInput.click()"> 
+        <i class="fa fa-fw fa-folder-open-o"></i> Browse
+      </button>
+      <button type="button" class="btn btn-sm btn-danger" (click)="clearImage()"> 
+        <i class="fa fa-fw fa-remove"></i> Clear
+      </button>
+  </div>
+</div>
+</form>
