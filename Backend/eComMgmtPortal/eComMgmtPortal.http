@@ -1,0 +1,15 @@
+@eComMgmtPortal_HostAddress = http://localhost:5187
+
+
+POST {{eComMgmtPortal_HostAddress}}/api/auth/login
+Accept: application/json
+###
+
+@token = Q7x9KpL2mN8vR4tY6uW1zA3sD5fG7hJ9kL0pO2iU4yT6rE8w
+@category = sidebar
+
+GET {{eComMgmtPortal_HostAddress}}/api/auth/menu?cat={{category}}
+Authorization: Bearer {{token}}
+
+
+
