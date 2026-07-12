@@ -1,0 +1,15 @@
+Angular installation
+______________________
+npm install bootstrap
+npm install sweetalert2
+npm install ngx-cookie-service localforage
+npm install --save-dev @types/localforage
+npm install @kolkov/angular-editor --force
+
+VueJs installation
+______________________
+npm install pinia
+npm install axios
+npm install swiper
+npm install sweetalert2
+npm i pinia-plugin-persistedstate
