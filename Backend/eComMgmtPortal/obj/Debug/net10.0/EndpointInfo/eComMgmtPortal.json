@@ -1,0 +1,3198 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "eComMgmtPortal",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginReq"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginReq"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/menu": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "cat",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/supp": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/cat": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/subcat": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "catId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/clogin": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginReq"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginReq"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/reg": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegReq"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegReq"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/pay": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/cust": {
+      "get": {
+        "tags": [
+          "Cust"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Cust"
+        ],
+        "parameters": [
+          {
+            "name": "CustId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FirstName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "LastName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UserName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Password",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Age",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Gender",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "DateofBirth",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Organization",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Country",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "State",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "City",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PostalCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "AltEmail",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Phone1",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Phone2",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Mobile1",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Mobile2",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Address1",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Address2",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Picture",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "LastLogin",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Created",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Notes",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "PictureFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "PictureFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/cust/{id}": {
+      "get": {
+        "tags": [
+          "Cust"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Cust"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CustId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "Age": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Gender": {
+                    "type": "string"
+                  },
+                  "DateofBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Organization": {
+                    "type": "string"
+                  },
+                  "Country": {
+                    "type": "string"
+                  },
+                  "State": {
+                    "type": "string"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "PostalCode": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "AltEmail": {
+                    "type": "string"
+                  },
+                  "Phone1": {
+                    "type": "string"
+                  },
+                  "Phone2": {
+                    "type": "string"
+                  },
+                  "Mobile1": {
+                    "type": "string"
+                  },
+                  "Mobile2": {
+                    "type": "string"
+                  },
+                  "Address1": {
+                    "type": "string"
+                  },
+                  "Address2": {
+                    "type": "string"
+                  },
+                  "Picture": {
+                    "type": "string"
+                  },
+                  "PictureFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "LastLogin": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Created": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Notes": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "CustId": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "Age": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "DateofBirth": {
+                  "style": "form"
+                },
+                "Organization": {
+                  "style": "form"
+                },
+                "Country": {
+                  "style": "form"
+                },
+                "State": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "PostalCode": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "AltEmail": {
+                  "style": "form"
+                },
+                "Phone1": {
+                  "style": "form"
+                },
+                "Phone2": {
+                  "style": "form"
+                },
+                "Mobile1": {
+                  "style": "form"
+                },
+                "Mobile2": {
+                  "style": "form"
+                },
+                "Address1": {
+                  "style": "form"
+                },
+                "Address2": {
+                  "style": "form"
+                },
+                "Picture": {
+                  "style": "form"
+                },
+                "PictureFile": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "LastLogin": {
+                  "style": "form"
+                },
+                "Created": {
+                  "style": "form"
+                },
+                "Notes": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cust"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/dash/summary": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/dash/sales-per-day": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/dash/top-products": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/dash/orders-per-day": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/dash/sales-by-country": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/emp": {
+      "get": {
+        "tags": [
+          "Emp"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Emp"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EmpID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "Age": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "DateofBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Gender": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Mobile": {
+                    "type": "string"
+                  },
+                  "PhotoPath": {
+                    "type": "string"
+                  },
+                  "UpdFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "EmpID": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "Age": {
+                  "style": "form"
+                },
+                "DateofBirth": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Mobile": {
+                  "style": "form"
+                },
+                "PhotoPath": {
+                  "style": "form"
+                },
+                "UpdFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/emp/{id}": {
+      "get": {
+        "tags": [
+          "Emp"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Emp"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EmpID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "Age": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "DateofBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Gender": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Mobile": {
+                    "type": "string"
+                  },
+                  "PhotoPath": {
+                    "type": "string"
+                  },
+                  "UpdFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "EmpID": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "Age": {
+                  "style": "form"
+                },
+                "DateofBirth": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Mobile": {
+                  "style": "form"
+                },
+                "PhotoPath": {
+                  "style": "form"
+                },
+                "UpdFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Emp"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/home/index": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/home/count": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "parameters": [
+          {
+            "name": "usrid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mycart/remove": {
+      "post": {
+        "tags": [
+          "MyCart"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/mycart/add": {
+      "post": {
+        "tags": [
+          "MyCart"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/mycart/bal-qty": {
+      "post": {
+        "tags": [
+          "MyCart"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/mycart/chkout": {
+      "get": {
+        "tags": [
+          "MyCart"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/{id}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/order/place-order": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ProdID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "SuppID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CatID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "SubCatID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "SuppDesc": {
+                    "type": "string"
+                  },
+                  "CatDesc": {
+                    "type": "string"
+                  },
+                  "SubcatDesc": {
+                    "type": "string"
+                  },
+                  "QtyPerUnit": {
+                    "type": "string"
+                  },
+                  "UnitPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "OldPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "UnitWeight": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Disc": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "UnitInStock": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "UnitOnOrder": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ProductAvailable": {
+                    "type": "boolean"
+                  },
+                  "ImageURL": {
+                    "type": "string"
+                  },
+                  "AltText": {
+                    "type": "string"
+                  },
+                  "AddBadge": {
+                    "type": "boolean"
+                  },
+                  "OfferTitle": {
+                    "type": "string"
+                  },
+                  "OfferBadgeClass": {
+                    "type": "string"
+                  },
+                  "ShortDesc": {
+                    "type": "string"
+                  },
+                  "LongDesc": {
+                    "type": "string"
+                  },
+                  "Picture1": {
+                    "type": "string"
+                  },
+                  "Picture2": {
+                    "type": "string"
+                  },
+                  "Picture3": {
+                    "type": "string"
+                  },
+                  "Picture4": {
+                    "type": "string"
+                  },
+                  "Note": {
+                    "type": "string"
+                  },
+                  "ImageFileDef": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile1": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile2": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile3": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile4": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ProdID": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "SuppID": {
+                  "style": "form"
+                },
+                "CatID": {
+                  "style": "form"
+                },
+                "SubCatID": {
+                  "style": "form"
+                },
+                "SuppDesc": {
+                  "style": "form"
+                },
+                "CatDesc": {
+                  "style": "form"
+                },
+                "SubcatDesc": {
+                  "style": "form"
+                },
+                "QtyPerUnit": {
+                  "style": "form"
+                },
+                "UnitPrice": {
+                  "style": "form"
+                },
+                "OldPrice": {
+                  "style": "form"
+                },
+                "UnitWeight": {
+                  "style": "form"
+                },
+                "Size": {
+                  "style": "form"
+                },
+                "Disc": {
+                  "style": "form"
+                },
+                "UnitInStock": {
+                  "style": "form"
+                },
+                "UnitOnOrder": {
+                  "style": "form"
+                },
+                "ProductAvailable": {
+                  "style": "form"
+                },
+                "ImageURL": {
+                  "style": "form"
+                },
+                "AltText": {
+                  "style": "form"
+                },
+                "AddBadge": {
+                  "style": "form"
+                },
+                "OfferTitle": {
+                  "style": "form"
+                },
+                "OfferBadgeClass": {
+                  "style": "form"
+                },
+                "ShortDesc": {
+                  "style": "form"
+                },
+                "LongDesc": {
+                  "style": "form"
+                },
+                "Picture1": {
+                  "style": "form"
+                },
+                "Picture2": {
+                  "style": "form"
+                },
+                "Picture3": {
+                  "style": "form"
+                },
+                "Picture4": {
+                  "style": "form"
+                },
+                "Note": {
+                  "style": "form"
+                },
+                "ImageFileDef": {
+                  "style": "form"
+                },
+                "ImageFile1": {
+                  "style": "form"
+                },
+                "ImageFile2": {
+                  "style": "form"
+                },
+                "ImageFile3": {
+                  "style": "form"
+                },
+                "ImageFile4": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/{id}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ProdID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "SuppID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CatID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "SubCatID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "SuppDesc": {
+                    "type": "string"
+                  },
+                  "CatDesc": {
+                    "type": "string"
+                  },
+                  "SubcatDesc": {
+                    "type": "string"
+                  },
+                  "QtyPerUnit": {
+                    "type": "string"
+                  },
+                  "UnitPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "OldPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "UnitWeight": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Disc": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "UnitInStock": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "UnitOnOrder": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ProductAvailable": {
+                    "type": "boolean"
+                  },
+                  "ImageURL": {
+                    "type": "string"
+                  },
+                  "AltText": {
+                    "type": "string"
+                  },
+                  "AddBadge": {
+                    "type": "boolean"
+                  },
+                  "OfferTitle": {
+                    "type": "string"
+                  },
+                  "OfferBadgeClass": {
+                    "type": "string"
+                  },
+                  "ShortDesc": {
+                    "type": "string"
+                  },
+                  "LongDesc": {
+                    "type": "string"
+                  },
+                  "Picture1": {
+                    "type": "string"
+                  },
+                  "Picture2": {
+                    "type": "string"
+                  },
+                  "Picture3": {
+                    "type": "string"
+                  },
+                  "Picture4": {
+                    "type": "string"
+                  },
+                  "Note": {
+                    "type": "string"
+                  },
+                  "ImageFileDef": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile1": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile2": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile3": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageFile4": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ProdID": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "SuppID": {
+                  "style": "form"
+                },
+                "CatID": {
+                  "style": "form"
+                },
+                "SubCatID": {
+                  "style": "form"
+                },
+                "SuppDesc": {
+                  "style": "form"
+                },
+                "CatDesc": {
+                  "style": "form"
+                },
+                "SubcatDesc": {
+                  "style": "form"
+                },
+                "QtyPerUnit": {
+                  "style": "form"
+                },
+                "UnitPrice": {
+                  "style": "form"
+                },
+                "OldPrice": {
+                  "style": "form"
+                },
+                "UnitWeight": {
+                  "style": "form"
+                },
+                "Size": {
+                  "style": "form"
+                },
+                "Disc": {
+                  "style": "form"
+                },
+                "UnitInStock": {
+                  "style": "form"
+                },
+                "UnitOnOrder": {
+                  "style": "form"
+                },
+                "ProductAvailable": {
+                  "style": "form"
+                },
+                "ImageURL": {
+                  "style": "form"
+                },
+                "AltText": {
+                  "style": "form"
+                },
+                "AddBadge": {
+                  "style": "form"
+                },
+                "OfferTitle": {
+                  "style": "form"
+                },
+                "OfferBadgeClass": {
+                  "style": "form"
+                },
+                "ShortDesc": {
+                  "style": "form"
+                },
+                "LongDesc": {
+                  "style": "form"
+                },
+                "Picture1": {
+                  "style": "form"
+                },
+                "Picture2": {
+                  "style": "form"
+                },
+                "Picture3": {
+                  "style": "form"
+                },
+                "Picture4": {
+                  "style": "form"
+                },
+                "Note": {
+                  "style": "form"
+                },
+                "ImageFileDef": {
+                  "style": "form"
+                },
+                "ImageFile1": {
+                  "style": "form"
+                },
+                "ImageFile2": {
+                  "style": "form"
+                },
+                "ImageFile3": {
+                  "style": "form"
+                },
+                "ImageFile4": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/menu": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/sidebar": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "usrid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/filter": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "cat",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subCat",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/prod/filter-cat": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "cat",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/filter-by-price": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "cat",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subCat",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "minPrice",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "maxPrice",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/filter-by-prod": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/view": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/prod/review": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CustID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ProdID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "ReviewText": {
+                    "type": "string"
+                  },
+                  "Rate": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "DateTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "encoding": {
+                "CustID": {
+                  "style": "form"
+                },
+                "ProdID": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "ReviewText": {
+                  "style": "form"
+                },
+                "Rate": {
+                  "style": "form"
+                },
+                "DateTime": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/profile/{id}": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Profile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EmpID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "Age": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "DateofBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Gender": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Mobile": {
+                    "type": "string"
+                  },
+                  "PhotoPath": {
+                    "type": "string"
+                  },
+                  "UpdFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "EmpID": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "Age": {
+                  "style": "form"
+                },
+                "DateofBirth": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Mobile": {
+                  "style": "form"
+                },
+                "PhotoPath": {
+                  "style": "form"
+                },
+                "UpdFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/supplier": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Supplier"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/supplier/{id}": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Supplier"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Supplier"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/wishlist": {
+      "get": {
+        "tags": [
+          "WishList"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/wishlist/add": {
+      "post": {
+        "tags": [
+          "WishList"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/wishlist/del": {
+      "delete": {
+        "tags": [
+          "WishList"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/wishlist/remove": {
+      "delete": {
+        "tags": [
+          "WishList"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Categories": {
+        "type": "object",
+        "properties": {
+          "categoryID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture1": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture2": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Products"
+            },
+            "nullable": true
+          },
+          "subCategory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubCategory"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginReq": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "rememberMe": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderItemsModel": {
+        "type": "object",
+        "properties": {
+          "ordDetid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ordid": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "prodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prodName": {
+            "type": "string",
+            "nullable": true
+          },
+          "qty": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "disc": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "totalAmt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "prodModel": {
+            "$ref": "#/components/schemas/ProdModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderModel": {
+        "type": "object",
+        "properties": {
+          "ordId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "custID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "payID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "payDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "shipID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "custAdd": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "shipAdd": {
+            "type": "string",
+            "nullable": true
+          },
+          "pmtType": {
+            "type": "string",
+            "nullable": true
+          },
+          "disc": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "taxes": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "totalAmt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isCompleted": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dIspatched": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dispatchedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "shipped": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "shippingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "deliver": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "deliveryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "cancelOrder": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sumAmt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sumQty": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sumAmtAftDisc": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemsModel"
+            },
+            "nullable": true
+          },
+          "shipDetModel": {
+            "$ref": "#/components/schemas/ShipDetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProdModel": {
+        "type": "object",
+        "properties": {
+          "prodID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "suppID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "catID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subCatID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "suppDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "catDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "subcatDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "qtyPerUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "oldPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "unitWeight": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "string",
+            "nullable": true
+          },
+          "disc": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "unitInStock": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "unitOnOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "productAvailable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "imageURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "altText": {
+            "type": "string",
+            "nullable": true
+          },
+          "addBadge": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "offerTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "offerBadgeClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "longDesc": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture1": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture2": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture3": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture4": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageFileDef": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "imageFile1": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "imageFile2": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "imageFile3": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "imageFile4": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Products": {
+        "type": "object",
+        "properties": {
+          "productID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplierID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subCategoryID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "quantityPerUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "oldPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "unitWeight": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "string",
+            "nullable": true
+          },
+          "discount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "unitInStock": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "unitOnOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "productAvailable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "imageURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "altText": {
+            "type": "string",
+            "nullable": true
+          },
+          "addBadge": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "offerTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "offerBadgeClass": {
+            "type": "string",
+            "nullable": true
+          },
+          "shortDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "longDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture1": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture2": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture3": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture4": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "categories": {
+            "$ref": "#/components/schemas/Categories"
+          },
+          "subCategory": {
+            "$ref": "#/components/schemas/SubCategory"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegReq": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShipDetModel": {
+        "type": "object",
+        "properties": {
+          "shipID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubCategory": {
+        "type": "object",
+        "properties": {
+          "subCategoryID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture1": {
+            "type": "string",
+            "nullable": true
+          },
+          "picture2": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "categories": {
+            "$ref": "#/components/schemas/Categories"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Products"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SupplierModel": {
+        "type": "object",
+        "properties": {
+          "suppId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "compName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "fax": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Cust"
+    },
+    {
+      "name": "Dashboard"
+    },
+    {
+      "name": "Emp"
+    },
+    {
+      "name": "Home"
+    },
+    {
+      "name": "MyCart"
+    },
+    {
+      "name": "Order"
+    },
+    {
+      "name": "Product"
+    },
+    {
+      "name": "Profile"
+    },
+    {
+      "name": "Supplier"
+    },
+    {
+      "name": "WishList"
+    }
+  ]
+}
