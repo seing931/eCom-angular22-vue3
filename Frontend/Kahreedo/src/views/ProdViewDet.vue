@@ -269,7 +269,7 @@ watch(
                                             <div class="media">
                                             <div class="media-left">
                                                 <a href="#">
-                                                    <img class="media-object custom-avatar" :src="item.picture ? item.picture : '/img/testimonial-img-3.jpg'" alt="item.lastName">
+                                                    <img class="media-object custom-avatar" :src="item.picture ? api.defaults.serURL + item.picture : '/img/testimonial-img-3.jpg'" alt="item.lastName">
                                                 </a>
                                             </div>
                                             <div class="media-body">
